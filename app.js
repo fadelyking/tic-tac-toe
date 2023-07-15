@@ -3,7 +3,7 @@ function TicGame() {
 	// Gameboard module with a board array inside of it to store the value of each position
 	const gameBoard = (() => {
 		let i = 0;
-		let board = Array(8).fill("");
+		let board = Array(9).fill("x");
 		return board;
 	})();
 
@@ -21,25 +21,25 @@ function TicGame() {
 		const thirdRow = document.createElement("div");
 		thirdRow.classList.add("third-row");
 
-		const square = document.createElement("div");
-		for (let i = 0; i <= gameBoard.length; i++) {
+		for (let i = 0; i <= gameBoard.length - 1; i++) {
 			if (3 > i) {
 				container.appendChild(firstRow);
 				const square = document.createElement("div");
-				square.classList.add(`square`);
-				console.log("square");
+				square.classList.add(`square-${i}`);
+				square.textContent = `${gameBoard[i]} - ${i}`;
 				firstRow.appendChild(square);
+				console.log(firstRow);
 			} else if (3 <= i && 6 > i) {
 				container.appendChild(secondRow);
 				const square = document.createElement("div");
-				square.classList.add(`square`);
-				console.log("square");
+				square.classList.add(`square-${i}`);
+				square.textContent = `${gameBoard[i]} - ${i}`;
 				secondRow.appendChild(square);
 			} else {
 				container.appendChild(thirdRow);
 				const square = document.createElement("div");
-				square.classList.add(`square`);
-				console.log("square");
+				square.classList.add(`square-${i}`);
+				square.textContent = `${gameBoard[i]} - ${i}`;
 				thirdRow.appendChild(square);
 			}
 		}
